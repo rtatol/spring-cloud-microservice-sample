@@ -1,0 +1,25 @@
+server:
+  port: 10001
+
+spring:
+  application:
+    name: account-service
+  datasource:
+    url: jdbc:h2:~/_account;AUTO_SERVER=TRUE;AUTO_RECONNECT=TRUE;MODE=PostgreSQL
+    username: account
+    password: account123
+    driverClassName: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+      format_sql: true
+    database: H2
+    show-sql: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:10000/eureka/
+#  instance:
+#    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
