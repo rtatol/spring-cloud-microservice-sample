@@ -23,7 +23,7 @@ spring:
         predicates:
         - Path=/accounts/**
         filters:
-        - RewritePath=/accounts/(?<path>.*), /$\{path}
+        - RewritePath=/accounts/(<path>.*), /$\{path}
 
 eureka:
   client:

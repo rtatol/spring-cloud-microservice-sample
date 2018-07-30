@@ -8,4 +8,7 @@ spring:
     config:
       server:
         git:
-          uri: file:///home/raf/IdeaProjects/cloud-config # local repo
+          # local repo
+          # uri: file:///home/raf/IdeaProjects/cloud-config
+          # remote repo
+          uri: https://github.com/rtatol/spring-cloud-microservice-sample-config.git
