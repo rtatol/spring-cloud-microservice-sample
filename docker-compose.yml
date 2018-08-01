@@ -1,16 +1,6 @@
 version: '2.0'
 services:
 
-  config-server:
-    container_name: config-server
-    image: raf43/config-server:0.0.1-SNAPSHOT
-    expose:
-    - 18888
-    ports:
-    - 18888:18888
-    networks:
-    - cloud-network
-
   registration-service:
     container_name: registration-service
     image: raf43/registration-service:0.0.1-SNAPSHOT
@@ -18,12 +8,7 @@ services:
     - 10000
     ports:
     - 10000:10000
-    networks:
-    - cloud-network
-    links:
-    - config-server:config-server
-    depends_on:
-    - config-server
+    network_mode: host
 
   account-service:
     container_name: account-service
@@ -32,13 +17,9 @@ services:
     - 10001
     ports:
     - 10001:10001
-    networks:
-    - cloud-network
-    links:
-    - registration-service:registration-service
     depends_on:
-    - config-server
     - registration-service
+    network_mode: host
 
   report-service:
     container_name: report-service
@@ -47,15 +28,10 @@ services:
     - 10002
     ports:
     - 10002:10002
-    networks:
-    - cloud-network
-    links:
-    - account-service:account-service
-    - registration-service:registration-service
     depends_on:
-    - config-server
     - registration-service
     - account-service
+    network_mode: host
 
   api-gateway:
     container_name: api-gateway
@@ -63,15 +39,7 @@ services:
     expose:
     - 12345
     ports:
-    - 12345:12345
-    networks:
-    - cloud-network
-    links:
-    - registration-service:registration-service
+    - 80:12345
     depends_on:
-    - config-server
     - registration-service
-
-networks:
-  cloud-network:
-    driver: bridge
+    network_mode: host
