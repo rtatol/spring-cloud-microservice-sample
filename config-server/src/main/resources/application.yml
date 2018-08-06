@@ -4,11 +4,20 @@ server:
 spring:
   application:
     name: config-server
+
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          # local repo
+#          uri: file:///home/raf/IdeaProjects/spring-cloud-microservice-sample-config
+#          # remote repo
+#          #uri: https://github.com/rtatol/spring-cloud-microservice-sample-config.git
+
+  profiles:
+    active: native
   cloud:
     config:
       server:
-        git:
-          # local repo
-          uri: file:///home/raf/IdeaProjects/spring-cloud-microservice-sample-config
-          # remote repo
-          #uri: https://github.com/rtatol/spring-cloud-microservice-sample-config.git
+        native:
+          searchLocations: file:///home/raf/IdeaProjects/spring-cloud-microservice-sample-config
