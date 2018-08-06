@@ -9,6 +9,6 @@ spring:
       server:
         git:
            # local repo
-           # uri: file:///home/rtatol/code/spring-cloud-microservice-sample-config-docker
+           uri: file:///home/raf/IdeaProjects/spring-cloud-microservice-sample-config-docker
            # remote repo
-           uri: https://github.com/rtatol/spring-cloud-microservice-sample-config-docker.git
+           # uri: https://github.com/rtatol/spring-cloud-microservice-sample-config-docker.git

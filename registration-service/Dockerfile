@@ -4,4 +4,4 @@ VOLUME /tmp
 EXPOSE 10000
 ARG JAR_FILE=target/registration-service-0.0.1-SNAPSHOT.jar
 ADD ${JAR_FILE} registration-service.jar
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-Xmx64m","-Xss256k","-jar","/registration-service.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-Xmx128m","-jar","/registration-service.jar"]
