@@ -1,8 +1,0 @@
-server:
-  port: 10000
-
-eureka:
-  # don't register yourself!
-  client:
-    registerWithEureka: false
-    fetchRegistry: false
